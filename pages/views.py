@@ -7,3 +7,7 @@ class HomePageView(TemplateView):
 
 class PreviousProjectsView(TemplateView):
     template_name = "previous_projects.html"
+
+
+class ContactPageView(TemplateView):
+    template_name = "contacts.html"

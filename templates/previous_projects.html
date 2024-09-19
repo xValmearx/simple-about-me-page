@@ -1,6 +1,84 @@
 {% extends "base.html" %}
 
 {% block PageTitle %}
-<h2>About Page</h2>
+<h2>Previous projects I have worked on</h2>
+
+
+<details title = "Project 1">
+  <artical>
+   <pre>
+    # Caleb L Taylor
+    # 1/17/2024
+    # CRN: 23199
+    # Class name: CIS 226: Advanced Python Programming
+    # Include total time estimate it took to complete the assignment = 6 hours
+
+    import sys
+
+
+    # main will first process the file and see if all arguments are accepted, if all argument are accepted it will then
+    # open and read fom the file
+
+    def main():
+      # # TODO: Check len(sys.argv) and warn if missing arguments
+      process_file()
+
+
+    # will check the argument that were inputted in the system, if argument are accepted it will then try to open the file
+    def process_file():
+
+      search_text = "" # used to search for a word in a text file
+      filename = "" # stores the text files directory
+
+
+      # checks the arguments of the system
+        try:
+        # checks if the arguments that has been enterd are greater than 3, if so raise an error
+          if len(sys.argv) > 3:
+            raise IndexError
+
+          # have the second and third argument enterd be the date to open and read from the file
+          search_text = sys.argv[1]
+          filename = sys.argv[2]
+
+          # open and read from the file
+          open_and_read_file(search_text,filename)
+
+
+      # if the argument list has over 3 enterd arguments or less than 3 enterd arguments raise an error
+      except IndexError:
+          sys_argv = len(sys.argv) - 1
+          print(f"Error, invaled index, expected 2 arguments, recived {sys_argv}")
+
+
+    # checks if the entered date for the file is valid, if so then read from the text file
+    # and search for instance of searched_text within the file
+
+    def open_and_read_file(searched_text,file_name):
+        # try to open file
+        try:
+
+        # use with open command to loop over each line of the file
+        with open(file_name,"r") as file:
+            for line in file:           # for each line in the file
+                line = line.rstrip()    # strip the current line
+
+
+                # if the entered word is within the current line, print the line to the console
+                if searched_text in line:
+                    print(line)
+
+
+    # if the file cannot be opened raise an error,
+    # this can happen if the text file directory has been enterd wrong
+    except:
+        print("cannot open file")
+
+
+    if __name__ == '__main__':
+      main()
+    </pre>
+  </artical>
+</details>
 {% endblock PageTitle %}
 
