@@ -1,10 +1,19 @@
 {% extends "base.html" %}
 
 {% block PageTitle %}
+
 <h2>Previous projects I have worked on</h2>
 
+{% endblock PageTitle %}
 
-<details title = "Project 1">
+{% block MainContent %}
+<div>
+  <h3>Search Text File</h3>
+  <p>This program allows the user to open the terminal and input the desired text and
+    the desired file to be read from, after this, simple open the program within the terminal
+    and the program will search the file for the text inputted as one of the arguments
+  </p>
+  <details open>
   <artical>
    <pre>
     # Caleb L Taylor
@@ -79,6 +88,61 @@
       main()
     </pre>
   </artical>
-</details>
-{% endblock PageTitle %}
+  </details>
+</div>
+
+<div>
+  <h3>Byte Calculator</h3>
+
+    <p>
+      This porgram is a simple byte calculator that uses a class to calculate
+      the total amounts of bytes when a unit is created as well as defining what type of byte it is.
+    </p>
+
+    <details open>
+      <pre>
+        # class for calculating byte
+        class Unit():
+
+          # initial set up, gets power as a argument
+          def __init__(self,p):
+
+            self.power = p
+            self.base = 8**p
+            self.type = "N/A"
+
+        # this gets the units btye tpye by by calculating it based off its power
+        def get_type(self,):
+
+            if self.power >= 12:
+                self.type = "Tera Byte"
+
+            elif self.power < 12 and self.power >=9:
+                self.type = "Giga Byte"
+
+            elif self.power < 9 and self.power >= 6:
+                self.type = "Mega Byte"
+
+            elif self.power < 6 and self.power >= 3:
+                self.type = "Kilo Byte"
+
+            else:
+                self.type = "Byte"
+
+      # test unit
+      A = Unit(8)
+      A.get_type()
+
+      print(A.type)
+      print(A.base)
+
+      # based of test unit, results should be a mega byte with 16777216 btyes
+
+      </pre>
+
+    </details>
+</div>
+{% endblock MainContent %}
+
+
 
