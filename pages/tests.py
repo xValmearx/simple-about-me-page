@@ -17,6 +17,18 @@ class HomePageTest(SimpleTestCase):
 
         self.assertEqual(responce.status_code, 200)
 
+        """test to see is page name is avalible """
+
+    def test_template_name_correct(self):
+        response = self.client.get(reverse("home"))
+
+        self.assertTemplateUsed(response, "home.html")
+
+    def test_template_contains(self):
+        response = self.client.get(reverse("home"))
+
+        self.assertContains(response, "<h2>About Myself</h2>")
+
 
 """test for previous projects page"""
 
@@ -36,6 +48,16 @@ class PreviousProjectsTest(SimpleTestCase):
 
         self.assertEqual(responce.status_code, 200)
 
+    def test_template_name_correct(self):
+        responce = self.client.get(reverse("previous_projects"))
+
+        self.assertTemplateUsed(responce, "previous_projects.html")
+
+    def test_template_contains(self):
+        response = self.client.get(reverse("previous_projects"))
+
+        self.assertContains(response, "<h2>Previous projects I have worked on</h2>")
+
 
 """test for contacts page"""
 
@@ -54,3 +76,13 @@ class ContactsTest(SimpleTestCase):
         responce = self.client.get(reverse("contacts"))
 
         self.assertEqual(responce.status_code, 200)
+
+    def test_template_name_correct(self):
+        responce = self.client.get(reverse("contacts"))
+
+        self.assertTemplateUsed(responce, "contacts.html")
+
+    def test_template_contains(self):
+        response = self.client.get(reverse("contacts"))
+
+        self.assertContains(response, "<h1>Contact Info</h1>")
