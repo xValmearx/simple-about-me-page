@@ -5,5 +5,5 @@ class HomePageView(TemplateView):
     template_name = "home.html"
 
 
-class AboutPageView(TemplateView):
-    template_name = "about.html"
+class PreviousProjectsView(TemplateView):
+    template_name = "previous_projects.html"

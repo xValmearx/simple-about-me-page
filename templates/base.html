@@ -1,10 +1,50 @@
-<Header>
-  <a href = "{%url "home"%}">Home</a>
-  <a href = "{%url "about"%}">About</a>
+<html lang="en">
 
-</Header>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
+  <title>Assigment 1 CIS 218 Caleb L Taylor</title>
 
-{% block contnets %}
+  <!<link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/cover/">
 
-{% endblock contnets %}
+  <!-- Custom styles for this template -->
+  <!link href="cover.css" rel="stylesheet">
+</head>
+
+<body class="text-center">
+
+  <div>
+
+    <header class="masthead mb-auto", position : fixed>
+
+      <div class="inner">
+        {% block PageTitle %}
+        {% endblock PageTitle %}
+
+        <nav class="nav nav-masthead justify-content-center">
+          <a class="nav-link active" href= {%url "home"%}>Home</a>
+          <a class="nav-link" href={% url "previous_projects"%}>About</a>
+        </nav>
+      </div>
+
+    </header>
+
+    <artical>
+
+      {% block MainContent %}
+      {% endblock MainContent %}
+
+    </artical>
+
+    <footer class="mastfoot mt-auto">
+      <div class="inner">
+        <p>Cover template for <a href="https://getbootstrap.com/">Bootstrap</a>, by <a href="https://twitter.com/mdo">@mdo</a>.</p>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
