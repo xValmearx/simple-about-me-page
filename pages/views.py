@@ -1,4 +1,12 @@
+"""
+Caleb Taylor
+9/20/2024
+CIS218
+"""
+
 from django.views.generic import TemplateView
+
+"""classes tell where each page should go"""
 
 
 class HomePageView(TemplateView):
