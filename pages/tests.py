@@ -1,32 +1,54 @@
+"""
+Caleb Taylor
+9/20/2024
+CIS218
+"""
+
 from django.test import SimpleTestCase
 from django.urls import reverse
 
 
+"""Tests for the home page """
+
+
 class HomePageTest(SimpleTestCase):
-    """Test to see if page is found"""
+    """Tests to see of the page will load"""
 
     def test_url_exist_at_current_location(self):
+
+        # create client form the rout page, aka home page
         responce = self.client.get("/")
 
+        # checks if the page will load
         self.assertEqual(responce.status_code, 200)
 
     """test to see is page name is avalible """
 
     def test_url_avalible_by_name(self):
+
+        # creates client of the home.html page
         responce = self.client.get(reverse("home"))
 
+        # checks if the page name is avalible
         self.assertEqual(responce.status_code, 200)
 
-        """test to see is page name is avalible """
+        """Test to see if the correct html page is being used"""
 
     def test_template_name_correct(self):
+        # creates client from home page
         response = self.client.get(reverse("home"))
 
+        # checks if the home page is using home.html
         self.assertTemplateUsed(response, "home.html")
 
+    """Test for proper header in html file"""
+
     def test_template_contains(self):
+
+        # creates client from home page
         response = self.client.get(reverse("home"))
 
+        # checks if homepage header matches inserted header
         self.assertContains(response, "<h2>About Myself</h2>")
 
 
